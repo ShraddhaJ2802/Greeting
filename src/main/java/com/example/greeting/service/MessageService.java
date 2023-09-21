@@ -1,5 +1,6 @@
 package com.example.greeting.service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -30,6 +31,11 @@ public class MessageService {
 	public Optional<Message> getById(int id) {
 		// TODO Auto-generated method stub
 		return msgRepositary.findById(id);
+	}
+
+	public List<Message> getAllMsg() {
+		// TODO Auto-generated method stub
+		return msgRepositary.findAll();
 	}
 }
 

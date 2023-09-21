@@ -1,5 +1,6 @@
 package com.example.greeting.controller;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.greeting.model.Message;
+
 import com.example.greeting.service.MessageService;
 
 @RestController
@@ -50,4 +52,9 @@ public class MessageController {
 		return msgService.getById(id);
 	}
 	
+	@GetMapping("/getalll")
+	public List<Message> getAllMsg()
+	{
+		return msgService.getAllMsg();
+	}
 }
