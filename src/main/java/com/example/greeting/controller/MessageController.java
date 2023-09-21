@@ -65,9 +65,9 @@ public class MessageController {
 		return msgService.EditMsg(id,msg);
 	}
 	
-	/*@DeleteMapping("//delete/{id")
+	@DeleteMapping("//delete/{id")
 	public void DeleteMsg(@PathVariable int id)
 	{
 		msgService.DeleteMsg(id);
-	}*/
+	}
 }

@@ -45,7 +45,7 @@ public class MessageService {
 		return null;
 	}
 
-	/*public void DeleteMsg(int id) {
+	public void DeleteMsg(int id) {
 		// TODO Auto-generated method stub
 		Optional<Message> msg_Data = getById(id);
 		if(msg_Data.isPresent()) {
@@ -54,7 +54,7 @@ public class MessageService {
 			msgRepositary.deleteById(id);
 		
 	}
-}*/	
+}	
 	public List<Message> getAllMsg() {
 			// TODO Auto-generated method stub
 			return msgRepositary.findAll();
