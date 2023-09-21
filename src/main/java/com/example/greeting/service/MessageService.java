@@ -16,5 +16,9 @@ public class MessageService {
 	@Autowired
 	private MsgRepositary msgRepositary;
 	
+    public String welcomeMsg() {
+		
+		return "Hello World";
+	}
 }
 

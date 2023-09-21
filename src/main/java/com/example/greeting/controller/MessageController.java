@@ -17,7 +17,11 @@ public class MessageController {
 	
 	private MessageService msgService;
 	
-	
+	@GetMapping("/welcome")
+	public String  welcomeMsg()
+	{
+		return msgService.welcomeMsg();
+	}
 
 	
 
