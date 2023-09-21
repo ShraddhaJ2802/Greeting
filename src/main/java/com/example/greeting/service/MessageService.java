@@ -1,5 +1,6 @@
 package com.example.greeting.service;
 
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class MessageService {
 	public Message addMessage(Message msg) {
 		// TODO Auto-generated method stub
 		return msgRepositary.save(msg);
+	}
+
+	public Optional<Message> getById(int id) {
+		// TODO Auto-generated method stub
+		return msgRepositary.findById(id);
 	}
 }
 
