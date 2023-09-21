@@ -1,9 +1,11 @@
 package com.example.greeting.controller;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +41,7 @@ public class MessageController {
 	}
 	
 	@PostMapping("/add")
-	 public Message addUser(@RequestBody Message msg)
+	 public Message addMsg(@RequestBody Message msg)
 	 {
 		Message msgData = msgService.addMessage(msg);
 		return msgData;
@@ -51,10 +53,21 @@ public class MessageController {
 		return msgService.getById(id);
 	}
 	
-	@PutMapping("/edit/{id}")
-	public Message EditMsg(@PathVariable int id , @RequestBody Message user )
+	@GetMapping("/getalll")
+	public List<Message> getAllMsg()
 	{
-		return msgService.EditMsg(id,user);
+		return msgService.getAllMsg();
 	}
 	
+	@PutMapping("/edit/{id}")
+	public Message EditMsg(@PathVariable int id , @RequestBody Message msg)
+	{
+		return msgService.EditMsg(id,msg);
+	}
+	
+	/*@DeleteMapping("//delete/{id")
+	public void DeleteMsg(@PathVariable int id)
+	{
+		msgService.DeleteMsg(id);
+	}*/
 }
