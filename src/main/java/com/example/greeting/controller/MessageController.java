@@ -1,10 +1,13 @@
 package com.example.greeting.controller;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.greeting.model.Message;
@@ -16,6 +19,9 @@ public class MessageController {
 	@Autowired
 	
 	private MessageService msgService;
+	private static final String template = "Hello, %s!";
+	private final AtomicLong counter = new AtomicLong();
+
 	
 	@GetMapping("/welcome")
 	public String  welcomeMsg()
@@ -24,5 +30,9 @@ public class MessageController {
 	}
 
 	
+	@GetMapping("/greeting")
+	public Message greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return new Message(counter.incrementAndGet(), String.format(template, name));
+	}
 
 }
