@@ -31,5 +31,16 @@ public class MessageService {
 		// TODO Auto-generated method stub
 		return msgRepositary.findById(id);
 	}
+
+	public Message EditMsg(int id, Message msg) {
+		// TODO Auto-generated method stub
+		Optional<Message> msg_Data = getById(id);
+		if(msg_Data.isPresent()) {
+			msg_Data.get().setMsg(msg.getMsg());
+			return msgRepositary.save(msg_Data.get());
+			
+		}
+		return null;
+	}
 }
 
