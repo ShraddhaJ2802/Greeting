@@ -20,5 +20,10 @@ public class MessageService {
 		
 		return "Hello World";
 	}
+
+	public Message addMessage(Message msg) {
+		// TODO Auto-generated method stub
+		return msgRepositary.save(msg);
+	}
 }
 

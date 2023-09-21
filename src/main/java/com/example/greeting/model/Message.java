@@ -12,7 +12,7 @@ public class Message {
 	@Id
 	@GeneratedValue
 	private long id;
-
+	private  String msg;
 	public Message(long id , String msg) {
 		super();
 		//this.id = id;
@@ -22,8 +22,6 @@ public class Message {
 	public Message() {
 		
 	}
-
-	private String msg;
 
 	public String getMsg() {
 		return msg;

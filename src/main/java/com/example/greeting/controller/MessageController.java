@@ -34,5 +34,11 @@ public class MessageController {
 	public Message greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Message(counter.incrementAndGet(), String.format(template, name));
 	}
-
+	
+	@PostMapping("/add")
+	 public Message addUser(@RequestBody Message msg)
+	 {
+		Message msgData = msgService.addMessage(msg);
+		return msgData;
+	 }
 }
